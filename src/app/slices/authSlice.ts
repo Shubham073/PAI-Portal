@@ -15,17 +15,11 @@ const initialState: AuthState = {
   error: null,
 };
 
-/**
- * Auth slice - Dummy implementation
- * TODO: Connect to backend API when ready
- */
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // Dummy login - accepts any credentials
     login: (state, action: PayloadAction<{ email: string; password: string }>) => {
-      // Create a mock user
       const mockUser: User = {
         id: '1',
         email: action.payload.email,

@@ -20,12 +20,8 @@ interface SidebarProps {
   onDrawerToggle: () => void;
 }
 
-// Simplified menu - only Dashboard for now
 const menuItems = [
   { text: 'Dashboard', icon: <DashboardIcon />, path: '/' },
-  // TODO: Add more menu items as features are implemented
-  // { text: 'Purchase Orders', icon: <ShoppingCart />, path: '/purchase-orders' },
-  // { text: 'Suppliers', icon: <Business />, path: '/suppliers' },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
@@ -71,7 +67,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
         open={mobileOpen}
         onClose={onDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better mobile performance
+          keepMounted: true,
         }}
         sx={{
           display: { xs: 'block', sm: 'none' },
@@ -81,7 +77,6 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
         {drawer}
       </Drawer>
 
-      {/* Desktop drawer */}
       <Drawer
         variant="permanent"
         sx={{

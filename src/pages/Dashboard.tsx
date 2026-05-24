@@ -2,10 +2,6 @@ import React from 'react';
 import { Box, Typography, Paper } from '@mui/material';
 import { useAuth } from '@/hooks/useAuth';
 
-/**
- * Dashboard page - Basic placeholder
- * TODO: Add actual dashboard content when backend is ready
- */
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
 

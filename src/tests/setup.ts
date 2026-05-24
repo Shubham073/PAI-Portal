@@ -1,13 +1,11 @@
 import '@testing-library/jest-dom';
-import { expect, afterEach, vi } from 'vitest';
+import { afterEach, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 
-// Cleanup after each test
 afterEach(() => {
   cleanup();
 });
 
-// Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation((query) => ({
@@ -22,7 +20,6 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-// Mock localStorage
 const localStorageMock = {
   getItem: vi.fn(),
   setItem: vi.fn(),
@@ -31,7 +28,6 @@ const localStorageMock = {
 };
 global.localStorage = localStorageMock as any;
 
-// Mock crypto.randomUUID
 if (!global.crypto) {
   global.crypto = {} as any;
 }

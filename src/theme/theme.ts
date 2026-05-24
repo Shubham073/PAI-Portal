@@ -1,8 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material/styles';
 
-/**
- * Brand color tokens
- */
 const brandColors = {
   primary: {
     main: '#1976d2',
@@ -42,9 +39,6 @@ const brandColors = {
   },
 };
 
-/**
- * Common theme options
- */
 const commonTheme: ThemeOptions = {
   typography: {
     fontFamily: [
@@ -110,9 +104,6 @@ const commonTheme: ThemeOptions = {
   },
 };
 
-/**
- * Light theme
- */
 export const lightTheme = createTheme({
   ...commonTheme,
   palette: {
@@ -129,9 +120,6 @@ export const lightTheme = createTheme({
   },
 });
 
-/**
- * Dark theme
- */
 export const darkTheme = createTheme({
   ...commonTheme,
   palette: {

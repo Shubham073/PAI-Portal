@@ -1,10 +1,6 @@
 import { useAppSelector, useAppDispatch } from '@/app/store';
 import { login, logout, clearAuth, clearError } from '@/app/slices/authSlice';
 
-/**
- * Custom hook for authentication operations - Dummy version
- * TODO: Connect to real backend API
- */
 export const useAuth = () => {
   const dispatch = useAppDispatch();
   const { user, isAuthenticated, isLoading, error } = useAppSelector((state) => state.auth);

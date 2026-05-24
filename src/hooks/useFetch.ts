@@ -10,9 +10,6 @@ export interface UseFetchReturn<T> extends UseFetchState<T> {
   refetch: () => void;
 }
 
-/**
- * Custom hook for data fetching with loading and error states
- */
 export function useFetch<T>(
   fetchFn: () => Promise<T>,
   dependencies: any[] = []

@@ -11,9 +11,6 @@ export interface UsePaginationReturn extends PaginationState {
   reset: () => void;
 }
 
-/**
- * Custom hook for managing pagination state
- */
 export function usePagination(
   initialPage: number = 0,
   initialPageSize: number = 25

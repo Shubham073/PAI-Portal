@@ -1,4 +1,4 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import { Box, Typography, Button, Container, Paper } from '@mui/material';
 import { ErrorOutline } from '@mui/icons-material';
 import { logger } from '@/services/logger';
@@ -14,10 +14,6 @@ interface State {
   errorInfo: ErrorInfo | null;
 }
 
-/**
- * Error Boundary component
- * Catches JavaScript errors anywhere in the child component tree and displays a fallback UI
- */
 class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -33,7 +29,6 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // Log error to service
     logger.error('React Error Boundary caught error', {
       error: error.message,
       stack: error.stack,
@@ -56,7 +51,6 @@ class ErrorBoundary extends Component<Props, State> {
 
   render(): ReactNode {
     if (this.state.hasError) {
-      // Custom fallback UI
       if (this.props.fallback) {
         return this.props.fallback;
       }

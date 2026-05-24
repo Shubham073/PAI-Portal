@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import apiClient from '@/api/axios';
 
-/**
- * Basic axios client tests
- * TODO: Add more tests when backend API is connected
- */
 describe('axios client', () => {
   it('should create axios instance', () => {
     expect(apiClient).toBeDefined();

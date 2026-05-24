@@ -8,9 +8,6 @@ import { lightTheme } from '@/theme/theme';
 import authReducer from '@/app/slices/authSlice';
 import purchaseOrdersReducer from '@/features/purchaseOrders/slice';
 
-/**
- * Custom render function for testing components with providers
- */
 export function renderWithProviders(
   ui: ReactElement,
   {

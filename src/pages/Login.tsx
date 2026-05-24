@@ -11,10 +11,6 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 
-/**
- * Login page - Dummy implementation
- * Accepts any email/password and logs in
- */
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -27,8 +23,6 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Dummy login - accepts any credentials
     login(email, password);
     navigate(from, { replace: true });
   };

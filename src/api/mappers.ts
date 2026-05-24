@@ -16,11 +16,6 @@ import {
   UserDTO,
 } from '@/api/types';
 
-/**
- * Mapper utilities to convert between backend DTOs and frontend domain models
- * Handles snake_case to camelCase conversion and enum mapping
- */
-
 export const mapLineItemFromDTO = (dto: LineItemDTO): LineItem => ({
   id: dto.id,
   productId: dto.product_id,

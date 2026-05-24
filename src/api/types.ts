@@ -1,4 +1,3 @@
-// Backend DTOs (Data Transfer Objects)
 export interface PurchaseOrderDTO {
   id: string;
   order_number: string;
@@ -63,7 +62,6 @@ export interface UserDTO {
   updated_at: string;
 }
 
-// API Response wrappers
 export interface ApiResponse<T> {
   success: boolean;
   data: T;
@@ -93,7 +91,6 @@ export interface ApiError {
   timestamp: string;
 }
 
-// Query parameters
 export interface PaginationParams {
   page?: number;
   pageSize?: number;

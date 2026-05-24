@@ -7,10 +7,6 @@ interface PrivateRouteProps {
   children: React.ReactNode;
 }
 
-/**
- * Protected route wrapper
- * Redirects to login if user is not authenticated
- */
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
   const location = useLocation();

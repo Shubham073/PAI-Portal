@@ -1,4 +1,3 @@
-// Domain models for Purchase Orders
 export interface PurchaseOrder {
   id: string;
   orderNumber: string;
@@ -36,7 +35,6 @@ export interface LineItem {
   unit: string;
 }
 
-// Supplier model
 export interface Supplier {
   id: string;
   name: string;
@@ -68,7 +66,6 @@ export interface Address {
   country: string;
 }
 
-// User model
 export interface User {
   id: string;
   email: string;
@@ -89,7 +86,6 @@ export enum UserRole {
   VIEWER = 'VIEWER',
 }
 
-// Auth models
 export interface AuthTokens {
   accessToken: string;
   refreshToken: string;
