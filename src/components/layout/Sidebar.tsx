@@ -23,6 +23,8 @@ import {
   ChevronRight as ChevronRightIcon,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '@/hooks/useAuth';
+import { UserRole } from '@/models';
 
 const drawerWidth = 240;
 const miniDrawerWidth = 64;
@@ -33,11 +35,11 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard' },
-  { text: 'PO Listing', icon: <ReceiptIcon />, path: '/purchase-orders' },
-  { text: 'Delegation', icon: <DelegationIcon />, path: '/delegation' },
-  { text: 'Chat', icon: <ChatIcon />, path: '/chat' },
-  { text: 'Settings', icon: <SettingsIcon />, path: '/settings' },
+  { text: 'Dashboard', icon: <DashboardIcon />, path: '/dashboard', allowedRoles: [UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST, UserRole.SUPPLIER] },
+  { text: 'PO Listing', icon: <ReceiptIcon />, path: '/purchase-orders', allowedRoles: [UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST, UserRole.SUPPLIER] },
+  { text: 'Delegation', icon: <DelegationIcon />, path: '/delegation', allowedRoles: [UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST] },
+  { text: 'Chat', icon: <ChatIcon />, path: '/chat', allowedRoles: [UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST, UserRole.SUPPLIER] },
+  { text: 'Settings', icon: <SettingsIcon />, path: '/settings', allowedRoles: [UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST, UserRole.SUPPLIER] },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
@@ -46,6 +48,12 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [collapsed, setCollapsed] = useState(false);
+  const { user } = useAuth();
+
+  // Filter menu items based on user role
+  const filteredMenuItems = menuItems.filter(item => 
+    !user?.role || item.allowedRoles.includes(user.role)
+  );
 
   const handleNavigation = (path: string) => {
     navigate(path);
@@ -63,7 +71,7 @@ const Sidebar: React.FC<SidebarProps> = ({ mobileOpen, onDrawerToggle }) => {
       <Toolbar />
       <Divider />
       <List sx={{ flexGrow: 1 }}>
-        {menuItems.map((item) => (
+        {filteredMenuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
               selected={location.pathname === item.path}

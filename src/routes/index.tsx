@@ -10,6 +10,7 @@ import PurchaseOrderDetails from '@/pages/PurchaseOrderDetails';
 import Delegation from '@/pages/Delegation';
 import Chat from '@/pages/Chat';
 import Settings from '@/pages/Settings';
+import { UserRole } from '@/models';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -56,7 +57,7 @@ const AppRoutes: React.FC = () => {
         <Route
           path="/delegation"
           element={
-            <PrivateRoute>
+            <PrivateRoute allowedRoles={[UserRole.ADMIN, UserRole.PROCUREMENT_SPECIALIST]}>
               <AppLayout>
                 <Delegation />
               </AppLayout>
