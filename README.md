@@ -168,7 +168,7 @@ Copy `.env.example` to `.env` and configure:
 
 ```bash
 # API Configuration
-VITE_API_BASE_URL=https://api.example.com/v1
+VITE_API_BASE_URL=https://http://127.0.0.1:8000
 VITE_API_TIMEOUT=30000
 
 # Authentication
